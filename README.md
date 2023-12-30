@@ -1,12 +1,12 @@
 # ToyProject
 
-##AUTHOR
+## AUTHOR
 
 KIM, MIN A 
 
 KIM, MIN CHEOL
 
-##TODO
+## TODO
 
 [] 로그인, 회원가입 기능 구현
 
