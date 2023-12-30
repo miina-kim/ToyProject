@@ -1,1 +1,3 @@
 # ToyProject
+
+AUTHOR : KIM, MIN A / KIM, MIN CHEOL
