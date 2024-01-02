@@ -1,0 +1,23 @@
+[Django]
+- Python Web Framework
+- uses Sqlite3 database
+- consists of html and .py files
+
+[Roles of Files]
+- mainapp/views.py : html 파일을 encoding
+- mainapp/urls.py : connect views with mainapp urls
+- urls.py : connect mainapp urls with project urls
+- mainapp/models.py : template of information(data) (ex. 게시판 안의 게시글 형태)
+
+[Commands]
+$ python manage.py runserver
+$ python manage.py makemigrations 
+$ python manage.py migrate
+
+[Users]
+- Superuser
+: Superuser는 django 프로젝트의 모든 app 및 object를 관리하는 계정이다.
+manage.py를 통해 Superuser계정이 생성되며 username, email address, 강한 password가 필요하다.
+
+[ToyProject]
+1. mainapp : first app
