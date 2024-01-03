@@ -18,6 +18,10 @@ urlpatterns = [
     path('blog/', blog, name='blog'),
     # URL:80/blog/숫자로 접속하면 게시글-세부페이지(posting)
     path('blog/<int:pk>/', posting, name="posting"),
+    # 글쓰기 페이지 추가
+    path('blog/new_post/', new_post),
+    # 삭제 페이지 추가
+    path('blog/<int:pk>/remove/', remove_post),
 ]
 
 # 이미지 URL 설정

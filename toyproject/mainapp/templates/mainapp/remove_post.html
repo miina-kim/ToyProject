@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>글 삭제</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <h3>{{ Post.postname }} - 삭제하기</h3>
+        <button>삭제</button> <!--buton clicked -> 정보를 서버로 전송-->
+    </form>
+</body>
+</html>
