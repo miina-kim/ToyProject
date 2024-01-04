@@ -22,6 +22,9 @@ urlpatterns = [
     path('blog/new_post/', new_post),
     # 삭제 페이지 추가
     path('blog/<int:pk>/remove/', remove_post),
+    
+    # 영화_로그인 페이지 추가
+    path('movie_login/', movie_login, name='movie_login')
 ]
 
 # 이미지 URL 설정

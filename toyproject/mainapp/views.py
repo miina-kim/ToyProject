@@ -42,3 +42,7 @@ def remove_post(request, pk):
         post.delete()
         return redirect('/blog/')
     return render(request, 'mainapp/remove_post.html', {'Post': post})
+
+# 영화 : 로그인 
+def movie_login(request):
+    return render(request, 'mainapp/movie_login.html')
