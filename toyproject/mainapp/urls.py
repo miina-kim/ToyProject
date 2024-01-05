@@ -9,8 +9,6 @@ from django.conf import settings
 app_name='mainapp'
 
 urlpatterns = [
-    # path('', index),
-    # path('blog/', blog),
     path('admin/', admin.site.urls),
     # 웹사이트의 첫화면은 index 페이지이다 + URL이름은 index이다
     path('', index, name='index'),
