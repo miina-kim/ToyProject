@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post
 
 # Create your views here.
@@ -15,7 +15,7 @@ def blog(request):
 # blog의 게시글(posting)을 부르는 posting 함수
 def posting(request, pk):
     # 게시글(Post) 중 pk(primary_key)를 이용해 하나의 게시글(post)를 검색
-    post = Post.objects.get(pk=pk) # Post.objects.filter(), Post.objects.get()
+    post = get_object_or_404(Post, pk=pk) # Post.objects.filter(), Post.objects.get()
     # posting.html 페이지를 열 때, 찾아낸 게시글(post)을 post라는 이름으로 가져옴
     return render(request, 'mainapp/posting.html', {'post':post})
 
@@ -34,7 +34,7 @@ def new_post(request):
                 mainphoto=request.POST['mainphoto'],
             )
         return redirect('/blog/')
-    return render(request, 'mainapp/new_post.html') # 글쓰기 버튼 클릭 시
+    return render(request, 'mainapp/new_post.html') # 글쓰기 버튼 클릭 시 (링크를 통해 페이지를 요청할 경우에는 무조건 GET 방식)
 
 def remove_post(request, pk):
     post = Post.objects.get(pk=pk)

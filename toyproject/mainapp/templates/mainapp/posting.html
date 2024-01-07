@@ -1,3 +1,5 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style_posting.css' %}">
 <html>
     <head>
         <title>Posting!</title>
@@ -11,7 +13,7 @@
             <img src = "{{ post.mainphoto.url }}" alt="" height="600">
             <br>
         {% endif %}
-        <a href="/blog/">게시판 목록</a>
-        <a href="/blog/{{post.pk}}/remove">삭제</a>
+        <button><a href="/blog/">게시판 목록</a></button>
+        <button><a href="/blog/{{post.pk}}/remove">삭제</a></button>
     </body>
 </html>

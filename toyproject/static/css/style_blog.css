@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+:root {
+    --button-color: #212529;
+    --button-bg-color: #cef3fb;
+    --button-hover-bg-color: #9bc8d0;
+}
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  
+  background: var(--button-bg-color);
+  color: var(--button-color);
+  
+  margin: 0;
+  padding: 0.5rem 1rem;
+  
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  
+  border: none;
+  border-radius: 4px;
+  
+  display: inline-block;
+  width: auto;
+  
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  
+  cursor: pointer;
+  
+  transition: 0.5s;
+}
+
+button:active,
+button:hover,
+button:focus {
+  background: var(--button-hover-bg-color);
+  outline: 0;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+form {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+}
+
+.postlist > li {
+  height : 20px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+}

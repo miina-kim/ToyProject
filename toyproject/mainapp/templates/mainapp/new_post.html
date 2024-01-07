@@ -7,7 +7,7 @@
 <body>
     <h1>글쓰기 페이지</h1>
     <form method="POST"> <!--TAG 'form' : 내부의 정보를 한 번에 서버로 전송, method 'POST' : 정보를 서버에 전송하여 DB에 저장-->
-        {% csrf_token %} <!--csrf : 사이트 간 요청 위조 -> 취약성 보완-->
+        {% csrf_token %} <!--csrf : 사이트 간 요청 위조 -> 취약성 보완, form 태그 밑에 항상 위치해야 함.-->
         제목<br>
         <input type="text" name="postname"><br>
         내용<br>
