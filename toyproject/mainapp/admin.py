@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Post # 게시글(Post) Model을 import
+from .models import Question, Answer
 
 # Register your models here.
 
@@ -9,3 +10,10 @@ class PostAdmin(admin.ModelAdmin):
 
 # 관리자(admin)가 게시글(Post)에 접근 가능
 admin.site.register(Post, PostAdmin)
+
+class QuestionAdmin(admin.ModelAdmin):
+    search_fields = ['subject']
+
+admin.site.register(Question, QuestionAdmin)
+
+admin.site.register(Answer)

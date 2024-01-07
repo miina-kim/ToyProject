@@ -22,7 +22,13 @@ urlpatterns = [
     path('blog/<int:pk>/remove/', remove_post),
     
     # 영화_로그인 페이지 추가
-    path('movie_login/', movie_login, name='movie_login')
+    path('movie_login/', movie_login, name='movie_login'),
+
+    # Q&A 페이지 추가 
+    path('qna_main/', qna_main, name='qna_main'),
+    path('qna_main/<int:pk>/', qna_detail, name='qna_detail'),
+    path('qna_main/answer/create/<int:pk>/', answer_create, name='answer_create'),
+    path('qna_main/question/create/', question_create, name='question_create')
 ]
 
 # 이미지 URL 설정

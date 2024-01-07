@@ -1,6 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.utils import timezone
 from .models import Post
+from .models import Question, Answer
+from .forms import QuestionForm
 
 # Create your views here.
 # index.html 페이지를 부르는 index 함수
@@ -46,3 +49,29 @@ def remove_post(request, pk):
 # 영화 : 로그인 
 def movie_login(request):
     return render(request, 'mainapp/movie_login.html')
+
+def qna_main(request):
+    question_list = Question.objects.all()
+    return render(request, 'mainapp/qna_main.html', {'question_list':question_list})
+
+def qna_detail(request, pk):
+    question = get_object_or_404(Question, pk=pk) # Post.objects.filter(), Post.objects.get()
+    return render(request, 'mainapp/qna_detail.html', {'question':question})    
+
+def answer_create(request, pk):
+    question = get_object_or_404(Question, pk=pk)
+    question.answer_set.create(content=request.POST.get('content'), create_date=timezone.now())
+    return redirect('mainapp:qna_detail', pk=pk)
+
+def question_create(request):
+    if request.method == 'POST':
+        form = QuestionForm(request.POST)
+        if form.is_valid():
+            question = form.save(commit=False)
+            question.create_date = timezone.now()
+            question.save()
+            return redirect('mainapp:qna_main')
+    else:
+        form = QuestionForm()
+    context = {'form': form}
+    return render(request, 'mainapp/qna_question.html', context)
