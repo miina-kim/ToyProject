@@ -4,6 +4,7 @@ from django.utils import timezone
 from .models import Post
 from .models import Question, Answer
 from .forms import QuestionForm
+from django.core.paginator import Paginator
 
 # Create your views here.
 # index.html 페이지를 부르는 index 함수
@@ -51,8 +52,11 @@ def movie_login(request):
     return render(request, 'mainapp/movie_login.html')
 
 def qna_main(request):
-    question_list = Question.objects.all()
-    return render(request, 'mainapp/qna_main.html', {'question_list':question_list})
+    page = request.GET.get('page', '1') # 페이지 값 가져오기 (default=1)
+    question_list = Question.objects.order_by('-create_date')
+    paginator = Paginator(question_list, 10) # 페이지당 10개씩 보여주기
+    page_obj = paginator.get_page(page)
+    return render(request, 'mainapp/qna_main.html', {'question_list':page_obj})
 
 def qna_detail(request, pk):
     question = get_object_or_404(Question, pk=pk) # Post.objects.filter(), Post.objects.get()

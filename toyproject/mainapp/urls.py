@@ -11,7 +11,7 @@ app_name='mainapp'
 urlpatterns = [
     path('admin/', admin.site.urls),
     # 웹사이트의 첫화면은 index 페이지이다 + URL이름은 index (별칭)
-    path('', index, name='index'),
+    # path('', index, name='index'),
     # URL:80/blog에 접속하면 blog 페이지 + URL이름은 blog 
     path('blog/', blog, name='blog'),
     # URL:80/blog/숫자로 접속하면 게시글-세부페이지(posting)
@@ -25,10 +25,11 @@ urlpatterns = [
     path('movie_login/', movie_login, name='movie_login'),
 
     # Q&A 페이지 추가 
+    path('', qna_main, name='qna_main'),
     path('qna_main/', qna_main, name='qna_main'),
     path('qna_main/<int:pk>/', qna_detail, name='qna_detail'),
     path('qna_main/answer/create/<int:pk>/', answer_create, name='answer_create'),
-    path('qna_main/question/create/', question_create, name='question_create')
+    path('qna_main/question/create/', question_create, name='question_create'),
 ]
 
 # 이미지 URL 설정

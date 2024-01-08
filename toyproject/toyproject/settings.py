@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'common.apps.CommonConfig',  
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -131,5 +132,9 @@ MEDIA_URL = '/media/'
 # css 적용
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static/css'),
+    # BASE_DIR / 'static'
 ) 
+
+# 로그인 성공후 이동하는 URL
+LOGIN_REDIRECT_URL = '/'
